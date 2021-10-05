@@ -14,16 +14,21 @@ body {
     margin-top: 50px;
 }
 
-#menu-title > span {
+#menu-title > a {
+    color: #000000;
+    text-decoration: none;
     font-size: 16px;
 }
 
 #menu-content > a {
     text-decoration: none;
-    margin: 0 25px;
+    margin-left: 40px;
     color: rgb(80, 80, 80);
     font-size: 14px;
     cursor: pointer;
+}
+#menu-content > a:hover {
+    color: #0e0e0e;
 }
 
 #presentation {
@@ -150,7 +155,8 @@ body {
 }
 
 #contact {
-    background-color: #5183f5;
+    background: rgb(81,131,245);
+    background: linear-gradient(143deg, rgba(81,131,245,1) 0%, rgba(70,64,255,1) 100%);
     margin-top: 100px;
     height: 200px;
 }
@@ -165,13 +171,18 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.footer-left-text {
+.footer-text {
+    text-decoration: none;
     color: #777777;
     margin-right: 20px;
     line-height: 30px;
     font-size: 13px;
     font-weight: 500;
 }
+.footer-text:hover{
+    color:#0e0e0e;
+}
+
 .footer-right-logo {
     margin-left: 10px;
     width: 30px;
