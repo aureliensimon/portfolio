@@ -1,0 +1,29 @@
+#article {
+    margin-top: 100px;
+}
+
+#article-background {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 1px 1px #cecece;
+}
+
+#article-title {
+    display: block;
+    margin-top: 50px;
+
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.article-text {
+    display: block;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.article-code {
+    display: block;
+    margin-top: 25px;
+}

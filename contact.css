@@ -1,0 +1,21 @@
+#contact {
+    margin: 150px 0px;
+}
+
+#contact-title {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+#contact-description {
+    display: block;
+    margin-top: 25px;
+    font-size: 1rem;
+    color: #454545;
+}
+.contact-hightlight {
+    color: #454545;
+    text-decoration: none;
+    font-weight: 700;
+}

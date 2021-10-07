@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>portfolio</title>
 </head>
 <body>
@@ -21,19 +21,18 @@
     
             <div id="menu-content">
                 <a href="#">About</a>
-                <a href="#">Projects</a>
-                <a href="#">Contact</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
 
         <div id="presentation">
             <div id="presentation-left">
-                <span id="presentation-left-title">Hello, I'm Aurélien Simon</span>
+                <span id="presentation-left-title">Hello, I'm Aurélien</span>
                 <span id="presentation-left-text">
                     I'm a junior fullstack software developer creating <span class="text-keyword">open source</span> projects
                     and <span class="text-keyword">writing</span> about modern Javascript, Node.js, and development.
                 </span>
-                <img src="https://img.shields.io/github/followers/aureliensimon?style=social" />
+                <a href="https://github.com/aureliensimon"><img src="https://img.shields.io/github/followers/aureliensimon?style=social&label=aureliensimon" /></a>
             </div>
             <div id="presentation-right">
                 <img id="presentation-right-photo" src="img/id.jpg" />
@@ -50,38 +49,48 @@
             <span class="section-title">Open Source Projects</span>
             <div class="section-list">
                 <div class="section-container">
-                    <span class="container-logo">🐦</span>
-                    <span class="project-container-name">Boids</span>
-                    <span class="project-container-description">Replicating the behavior of flocks of birds</span>
-                    <a class="project-container-link" href="#">Link</a>
+                    <a class="section-redirection" href="boid.html">
+                        <span class="container-logo">🐦</span>
+                        <span class="project-container-name">Boids</span>
+                        <span class="project-container-description">Replicating the behavior of flocks of birds</span>
+                    </a>
+                    <a class="project-container-link" href="https://github.com/aureliensimon/flocking-simulation" target="_blank">Link</a>
                 </div>
 
                 <div class="section-container">
-                    <span class="container-logo">🤖</span>
-                    <span class="project-container-name">Zer0lose</span>
-                    <span class="project-container-description">Solve Tic Tac Toe and Connect 4 games using minimax</span>
-                    <a class="project-container-link" href="#">Link</a>
+                    <a class="section-redirection" href="boid.html">
+                        <span class="container-logo">🤖</span>
+                        <span class="project-container-name">Zer0lose</span>
+                        <span class="project-container-description">Solve Tic Tac Toe and Connect 4 games using minimax</span>
+                    </a>
+                    <a class="project-container-link" href="https://github.com/aureliensimon/zer0lose-AI" target="_blank">Link</a>
                 </div>
 
                 <div class="section-container">
-                    <span class="container-logo">📅</span>
-                    <span class="project-container-name">EdtISEN</span>
-                    <span class="project-container-description">User friendly schedule mobile app</span>
-                    <a class="project-container-link" href="#">Link</a>
+                    <a class="section-redirection" href="boid.html">
+                        <span class="container-logo">📅</span>
+                        <span class="project-container-name">EdtISEN</span>
+                        <span class="project-container-description">User friendly schedule mobile app</span>
+                    </a>
+                    <a class="project-container-link" href="https://github.com/aureliensimon/EDTISEN" target="_blank">Link</a>
                 </div>
 
                 <div class="section-container">
-                    <span class="container-logo">🕹️</span>
-                    <span class="project-container-name">Pong</span>
-                    <span class="project-container-description">The first computer games that ever created</span>
-                    <a class="project-container-link" href="#">Link</a>
+                    <a class="section-redirection" href="boid.html">
+                        <span class="container-logo">🕹️</span>
+                        <span class="project-container-name">Pong</span>
+                        <span class="project-container-description">The first computer games that ever created</span>
+                    </a>
+                    <a class="project-container-link" href="https://github.com/aureliensimon/pong" target="_blank">Link</a>
                 </div>
 
                 <div class="section-container">
-                    <span class="container-logo">🎰</span>
-                    <span class="project-container-name">Roulette Strategies</span>
-                    <span class="project-container-description">Famous roulette strategies (Whittacker, Wells pendulum ...)</span>
-                    <a class="project-container-link" href="#">Link</a>
+                    <a class="section-redirection" href="boid.html">
+                        <span class="container-logo">🎰</span>
+                        <span class="project-container-name">Roulette Strategies</span>
+                        <span class="project-container-description">Famous roulette strategies (Whittacker, Wells pendulum ...)</span>
+                    </a>
+                    <a class="project-container-link" href="https://github.com/aureliensimon/dicebot-strategies" target="_blank">Link</a>
                 </div>
             </div>
         </div>
@@ -110,14 +119,14 @@
         </div>
     </div>
 
-    <div id="contact">
+    <div id="contact-section">
     </div>
 
     <div id="footer">
         <div id="footer-list">
             <div>
                 <a class="footer-text" href="#">Curriculum</a>
-                <a class="footer-text" href="#">Github</a>
+                <a class="footer-text" href="https://github.com/aureliensimon">Github</a>
                 <a class="footer-text" href="#">Contact</a>
             </div>
             <div>
