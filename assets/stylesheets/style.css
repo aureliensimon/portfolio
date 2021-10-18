@@ -185,12 +185,50 @@ body {
     color: #0f0f0f;
 }
 
-#contact-section {
-    background: rgb(81,131,245);
+#skills-section {
     background: linear-gradient(143deg, rgba(81,131,245,1) 0%, rgba(70,64,255,1) 100%);
     margin-top: 100px;
-    height: 200px;
+    padding: 50px 0;
 }
+#skills-title {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+}
+#skills-box {
+    margin: 25px auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+.skills-item {
+    flex: 40%;
+    margin: 10px;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: .5rem 1.25rem 1.75rem 0 rgba(0,0,0,.3);
+    border-radius: 6px;
+}
+.skills-item-title {
+    font-weight: 500;
+}
+.skills-item-imgbox {
+    margin-top: 10px;
+    text-align: center;
+}
+.skills-item-img {
+    display: inline-block;
+    width: 31%;
+    margin-top: 20px;
+}
+.skills-item-img > img {
+    width: 50px;
+    height: 45px;
+}
+
 
 #footer {
     width: 45%;
