@@ -11,6 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/a11y-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+
     <title>portfolio</title>
 </head>
 <body>
@@ -32,14 +37,151 @@
             <img id="article-background" src="../assets/img/connect4.png"/>
 
             <span id="article-title">
-                Zer0lose
+                Zer0lose, how to win everytime at tic tac toe and connect4 using minimax algorithm
             </span>
 
-            <span class="article-text">
-                Solve Tic Tac Toe and Connect 4 games using minimax
-            </span>
+            <h3>Minimax algorithm</h3>
+            <p>
+                Minimax algorithm calculate the minimax decision at a current state and try to find the optimal move for a player, assuming that your opponent also plays optimally. It use a backtracking-like method, doing a simple recursive call developping all leaf of the tree, pushing up these values level by level. Minimax explore (DFS Depth First Search) the tree.
 
-            <img class="article-code" src="../assets/img/test.png">
+                Here is a visual exemple of how minimax works
+            </p> 
+            <img class="article-code" src="../assets/img/ZXEdz.png">
+            <p>
+                Pseudo-code of minimax :
+            </p>
+            <pre><code class="language-js">
+function minimax(node, depth, maximizingPlayer) is
+    if depth = 0 or node is a terminal node then
+        return the heuristic value of node
+    if maximizingPlayer then
+        value := −∞
+        for each child of node do
+            value := max(value, minimax(child, depth − 1, FALSE))
+        return value
+    else (* minimizing player *)
+        value := +∞
+        for each child of node do
+            value := min(value, minimax(child, depth − 1, TRUE))
+        return value
+        
+
+minimax(origin, depth, TRUE)
+            </code></pre>
+
+            <p>
+                Now that minimax is working fine, the program can find the optimal solution almost instantaneous EXECPT when the IA is playing the first move, it takes an average of 4.565382957458496s to find the best solution, but does it really need to calculate every game possible before finding the best option ? No, so let's optimise minimax
+            </p>
+            
+            <h3>Alpha Beta prunning</h3>
+            <p>
+                1956, John McCarthy is presiding Dartmouth's conference, in which he presents alpha-beta prunning, that seeks to decrease the number of nodes that are evaluated by the minimax algorithm in its search tree. It stops evaluating a move when at least one possibility has been found that proves the move to be worse than a previously examined move. Such moves need not be evaluated further. When applied to a standard minimax tree, it returns the same move as minimax would, but prunes away branches that cannot possibly influence the final decision.
+
+                Visual explanation of alpha-beta prunning
+            </p>
+            <img class="article-code" src="../assets/img/abprunning.png">
+            <p>
+                Pseudo-code of alpha-beta prunning
+            </p>
+            
+            <pre><code class="language-js">
+function alphabeta(node, depth, α, β, maximizingPlayer) is
+    if depth = 0 or node is a terminal node then
+        return the heuristic value of node
+    if maximizingPlayer then
+        value := −∞
+        for each child of node do
+            value := max(value, alphabeta(child, depth − 1, α, β, FALSE))
+            α := max(α, value)
+            if α ≥ β then
+                break (* β cut-off *)
+        return value
+    else
+        value := +∞
+        for each child of node do
+            value := min(value, alphabeta(child, depth − 1, α, β, TRUE))
+            β := min(β, value)
+            if α ≥ β then
+                break (* α cut-off *)
+        return value
+            </code></pre>
+
+            <h4>Effectiveness Measure</h4>
+
+            <table>
+                <tr>
+                    <th>algorithm</th>
+                    <th>time (s)</th>
+                </tr>
+                <tr>
+                    <td>minimax</td>
+                    <td>4.565382957458496</td>
+                </tr>
+                <tr>
+                    <td>alpha-beta prunning</td>
+                    <td>0.206006288528442</td>
+                </tr>
+            </table>
+            <p>
+                As you can see alpha-beta prunning is more than 22 times more efficient, and this is only for game with 3x3 or 7x6 board, this optimisation is even more important in chess engine.
+            </p>
+
+            <h3>Connect 4 and minimax</h3>
+            <p>
+                Minimax can also be applied to Connect4, but as the board is 7x6, to calculate all possibles boards after n turn it takes 7n calculus, so connect4 need a maximum depth to avoid too much calculus. Then we need a way to evaluate the board when it's not a game over that we are going to call when we reach the maximum depth to stop the recursion call.
+                <br><br>
+                Here are the rules to evaluate a board :
+                <br><br>
+                The analysis of the entire grid will result in a score. A high score will correspond to a grid "favorable" to the IA. A low score will be an "unfavorable" grid. The IA will therefore test each of the possible columns and choose the one that leads to the most favorable grid (the one with the highest score).
+                <br><br>
+                It remains to determine the evaluation function of this score. For Connect4, a possible strategy is to evaluate all the possible quadruplets of consecutive squares on the grid. All the possible quadruplets are shown in the following figure (for a grid of 6 rows and 7 columns):
+            </p>
+            <img  class="article-code" src="../assets/img/connect4q.png">
+            <p>
+                <ul>
+                    <li>
+                        If there are 'X' and 'O', there can never be an alignment of 4 'X' or 'O' on this quadruplet: it is a neutral quadruplet. We can assign it the score of 0.
+                    </li>
+                    <li>
+                        If there is nothing, it is neither favorable nor unfavorable, score of 0
+                    </li>
+                    <li>
+                        If there are only IA 'O': this is a favorable quadruplet. We will give it a positive score:
+                        <ul>
+                            <li>
+                                1 '0' : the position is open for the computer. Score = 1
+                            </li>
+                            <li>
+                                2 '0' (not necessarily consecutive): it's a much better position. Score = 10
+                            </li>
+                            <li>
+                                3 '0' (not necessarily consecutive): this is a position that can potentially lead to victory. Score = 1000
+                            </li>
+                            <li>
+                                4 '0' : win. Score = 100000.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        If there are only Human 'X': this is a unfavorable quadruplet. We will give it a negative score:
+                        <ul>
+                            <li>
+                                1 'X' : Score = - 1
+                            </li>
+                            <li>
+                                2 'X' : Score = - 10
+                            </li>
+                            <li>
+                                3 'X' : this is a very unfavorable position. Score = - 500
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </p>
+
+            <h3>Sources</h3>
+            <a href="https://books.google.fr/books?id=DWTlFWSGxJMC&printsec=frontcover&hl=fr&sa=X&ved=0ahUKEwinvNLxm8roAhUMtRoKHV6MCFcQ6AEIKDAA#v=onepage&q&f=false">Intelligence Artificielle 3e Edition</a>
+            <a href="https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/">GeekForGeeks Minimax in Game Theory</a>
         </div>
     </div>
 
@@ -55,5 +197,7 @@
             </div>
         </div>
     </div>
+
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

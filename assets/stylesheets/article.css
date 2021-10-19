@@ -1,5 +1,6 @@
 #article {
     margin-top: 100px;
+    font-family: 'Arimo', sans-serif;
 }
 
 #article-background {
@@ -12,8 +13,8 @@
 #article-title {
     display: block;
     margin-top: 50px;
-
-    font-size: 30px;
+    color: #111;
+    font-size: 2rem;
     font-weight: 800;
 }
 
@@ -28,4 +29,65 @@
     display: block;
     margin: 25px auto;
     width: 90%;
+}
+
+#article h3 {
+    font-weight: 700;
+    color: #111;
+    font-size: 1.5rem;
+    margin-top: 75px;
+    border-bottom: 1px solid #ebebeb;
+    line-height: 2;
+}
+#article h4 {
+    margin-top: 75px;
+    font-size: 1.25rem;
+    color: #444;
+    font-weight: 600;
+}
+#article p {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #454545;
+    font-size: 1rem;
+    line-height: 1.75rem;
+}
+#article li {
+    font-weight: 600;
+    color: #454545;
+    font-size: 1rem;
+    line-height: 1.75rem;
+}
+#article pre {
+    margin: 25px auto;
+}
+#article pre code {
+    padding: 10px 30px;
+    border-radius: 15px;
+    box-shadow: .5rem 1.1rem 1.5rem 0 rgba(0,0,0,.3);
+}
+#article table {
+    border-collapse:collapse;
+    width: 75%;
+    margin: 0 auto;
+}
+#article td, th {
+    padding: 15px;
+}
+#article table, th, td {
+    border: 1px solid #444;
+    text-align: center;
+}
+#article th {
+    color: white;
+    background-color: #444;
+    border: 1px solid white;
+}
+
+#article a {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #5183f5;
+    font-weight: 500;
 }
