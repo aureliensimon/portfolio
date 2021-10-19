@@ -1,0 +1,48 @@
+@media only screen and (max-width: 1024px) {
+    #content {
+        width: 90%;
+    }
+    #menu {
+        justify-content: space-evenly;
+    }
+    #menu-content > a {
+       padding: 10px 5px;
+    }
+    #menu-title-text {
+        display: none;
+    }
+    #presentation {
+        display: block;
+    }
+    #presentation-left {
+        width: 100%;
+    }
+    #presentation-right {
+        width: 80%;
+        margin: 0 auto;
+    }
+    #presentation-right-photo {
+        display: none;
+    }
+    .section-title {
+        display: flex;
+        justify-content: space-between;
+    }
+    .section-redirection {
+        display: block;
+        width: 60%;
+    }
+    .project-container-link {
+        width: 15vmin;
+    }
+    .project-container-name {
+        display: inline-block;
+    }
+    .project-container-description {
+        display: none;
+    }
+
+    #skills-box {
+        width: 90%;
+    }
+}
