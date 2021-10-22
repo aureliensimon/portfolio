@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/a11y-dark.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    
     <title>portfolio</title>
 </head>
 <body>
@@ -32,14 +36,82 @@
             <img id="article-background" src="../assets/img/bird.jpg"/>
 
             <span id="article-title">
-                Replicating the behavior of flocks of birds
+                Boid, simulating the flocking behaviour of birds
             </span>
 
-            <span class="article-text">
-                Boids is an artificial life program, developed by Craig Reynolds in 1986, which simulates the flocking behaviour of birds. His paper on this topic was published in 1987 in the proceedings of the ACM SIGGRAPH conference. [1] The name "boid" corresponds to a shortened version of "bird-oid object", which refers to a bird-like object.[2] Incidentally, "boid" is also a New York Metropolitan dialect pronunciation for "bird."
-            </span>
+            <h3>History</h3>
+            <p>
+                In 1986, Craig Reynolds made a computer model of coordinated animal motion such as bird flocks and fish schools. It called the generic simulated flocking creatures boids.
+            </p>
 
-            <img class="article-code" src="../assets/img/test.png">
+            <h3>How does it work</h3>
+            <p>
+                Each of the boids obeys three simple rules:
+                <h5>1. Coherence</h5>
+                Each boid flies towards the the other boids. But they don't just immediately fly directly at each other. They gradually steer towards each other at a rate that you can adjust with the "coherence" slider.
+                <pre><code class="language-js">
+PROCEDURE COHERENCE (boid bJ)
+
+    Vector pcJ
+
+    FOR EACH BOID b
+        IF b != bJ THEN
+            pcJ = pcJ + b.position
+        END IF
+    END
+
+    pcJ = pcJ / N-1
+
+    RETURN (pcJ - bJ.position) / 100
+
+END PROCEDURE
+                </code></pre>
+                
+                <h5>2. Separation</h5>
+                Each boid also tries to avoid running into the other boids. If it gets too close to another boid it will steer away from it. You can control how quickly it steers with the "separation" slider.
+                <pre><code class="language-js">
+PROCEDURE SEPARATION (boid bJ)
+
+    Vector c = 0;
+
+    FOR EACH BOID b
+        IF b != bJ THEN
+            IF |b.position - bJ.position| < 100 THEN
+                c = c - (b.position - bJ.position)
+            END IF
+        END IF
+    END
+
+    RETURN c
+
+END PROCEDURE
+                </code></pre>
+                
+                <h5>3. Alignment</h5>
+                Finally, each boid tries to match the vector (speed and direction) of the other boids around it. Again, you can control how quickly they try to match vectors using the "coherence" slider.
+                <pre><code class="language-js">
+PROCEDURE rule3(boid bJ)
+
+    Vector pvJ
+
+    FOR EACH BOID b
+        IF b != bJ THEN
+            pvJ = pvJ + b.velocity
+        END IF
+    END
+
+    pvJ = pvJ / N-1
+
+    RETURN (pvJ - bJ.velocity) / 8
+
+END PROCEDURE
+                </code></pre>
+            </p>
+
+            <h3>Sources</h3>
+            <a href="http://www.red3d.com/cwr/boids/">Boids, from Craig Reynolds</a>
+            <a href="https://en.wikipedia.org/wiki/Boids">Wikipedia Boid article</a>
+            <a href="http://www.kfish.org/boids/pseudocode.html">Boids Pseudocode</a>
         </div>
     </div>
 
@@ -55,5 +127,7 @@
             </div>
         </div>
     </div>
+
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/a11y-dark.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    
     <title>portfolio</title>
 </head>
 <body>
@@ -35,11 +39,30 @@
                 Pong
             </span>
 
-            <span class="article-text">
-                The first computer games that ever created
-            </span>
-
-            <img class="article-code" src="../assets/img/test.png">
+            <h3>History</h3>
+            <p>Pong is one of the first computer games that ever created, this simple "tennis like" game features two paddles and a ball, the goal is to defeat your opponent by being the first one to gain10 point, a player gets a point once the opponent misses a ball</p>
+            
+            <h3>AI and pong</h3>
+            <p>
+                Une  classe  contient  éventuellement  des  déclarations  de  variables,  ces  variables  seront  créées  pour  
+                chaque  objet  de  la  classe  mais  elles  pourront  avoir  des  valeurs  différentes  dans  chaque  objet  pris  
+                isolément. Nos objets « Fenetre » seront caractérisés ici par une largeur et une hauteur (actuelle et 
+                maximum pour chacun) de type entier, un tableau de caractères à deux dimensions servant à décrire 
+                le contenu de notre fenêtre.
+            </p>
+            <pre><code class="language-cpp">
+if (AI) {
+    // If the ball is no longer in the first third of the field, allow the ia to move (more realistic)
+    if (ball->x() > BOARD_WIDTH / 3) {
+        if (paddleP2->y() + BOARD_HEIGHT / 2 > ball->y()) {
+            // move toward top
+            if (paddleP2->y() > BOARD_HEIGHT / -2 + PADDLE_SIZE / 2) paddleP2->setPos(paddleP2->x(), paddleP2->y() - AI_LEVEL);
+        } else {
+            // move toward bottom
+            if (paddleP2->y() < BOARD_HEIGHT / 2 - PADDLE_SIZE / 2) paddleP2->setPos(paddleP2->x(), paddleP2->y() + AI_LEVEL);
+        }
+    }
+}           </code></pre>
         </div>
     </div>
 
@@ -55,5 +78,7 @@
             </div>
         </div>
     </div>
+
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

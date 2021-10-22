@@ -24,6 +24,10 @@
     font-size: 16px;
     font-weight: 300;
 }
+.article-img {
+    margin-top: 25px;
+    width: 48%;
+}
 
 .article-code {
     display: block;
@@ -35,13 +39,19 @@
     font-weight: 700;
     color: #111;
     font-size: 1.5rem;
-    margin-top: 75px;
+    margin-top: 50px;
     border-bottom: 1px solid #ebebeb;
     line-height: 2;
 }
 #article h4 {
     margin-top: 75px;
     font-size: 1.25rem;
+    color: #444;
+    font-weight: 600;
+}
+#article h5 {
+    margin-top: 40px;
+    font-size: 1.05rem;
     color: #444;
     font-weight: 600;
 }
